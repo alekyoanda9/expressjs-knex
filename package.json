@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev --respawn src/main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate:make": "knex --knexfile ./knex/knexfile.ts migrate:make",
+    "migrate:mysql": "knex --knexfile ./knex/knexfile.ts --env main migrate:latest",
+    "migrate:pg": "knex --knexfile ./knex/knexfile.ts --env secondary migrate:latest",
+    "migrate:rollback:mysql": "knex --knexfile ./knex/knexfile.ts --env main migrate:rollback",
+    "migrate:rollback:pg": "knex --knexfile ./knex/knexfile.ts --env secondary migrate:rollback"
   },
   "author": "Alek Yoanda",
   "license": "ISC",
@@ -15,6 +21,7 @@
     "express": "^5.1.0",
     "knex": "^3.1.0",
     "mysql2": "^3.15.2",
+    "pg": "^8.16.3",
     "uuid": "^13.0.0",
     "winston": "^3.18.3",
     "zod": "^4.1.12"
