@@ -13,7 +13,7 @@ export const errorMiddleware = async (error: Error, req: Request, res: Response,
         });
     } else {
         res.status(500).json({
-            errors: error.message
+            errors: "Internal server error. Please try again later."
         });
     }
 }

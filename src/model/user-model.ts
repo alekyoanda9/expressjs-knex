@@ -10,10 +10,21 @@ export type UserResponse = {
     name: string;
     token?: string;
 }
+
 export type CreateUserRequest = {
     username: string;
     name: string;
     password: string;
+}
+
+export type LoginUserRequest = {
+    username: string;
+    password: string;
+}
+
+export type UpdateUserRequest = {
+    name?: string | undefined;
+    password?: string | undefined;
 }
 
 export function toUserResponse(user: User): UserResponse {
